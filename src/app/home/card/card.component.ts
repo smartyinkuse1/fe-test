@@ -47,7 +47,6 @@ export class CardComponent implements OnInit {
   onSubmit() {
     this.submit = true
     let currentDate = new Date().getFullYear()
-    console.log(currentDate, this.form);
     if (!this.form.valid) {
       return
     }

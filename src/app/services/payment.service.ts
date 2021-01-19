@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject, of } from 'rxjs';
 import { Card } from '../home/card/card.model';
-import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,6 @@ export class PaymentService {
   createCard(card) {
     // Simulate Http request Obseverbles
     const newCard = {...card, id: this.id}
-    console.log(newCard);
     this.id++
    return of(newCard)
   }
