@@ -1,0 +1,10 @@
+form {
+  margin: 10px;
+}
+label,input {
+  margin: 10px;
+}
+p {
+  color: red;
+  margin-left: 10px;
+}

@@ -1,0 +1,5 @@
+<button *ngIf="showApp" routerLink="/home">Pay</button>
+<router-outlet></router-outlet>
+<ul *ngIf="showApp">
+  <li *ngFor="let card of (cards$ | async)">{{card.holder}}</li>
+</ul>

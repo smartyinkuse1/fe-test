@@ -1,0 +1,20 @@
+<h3>Add A New Card</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="number">Card Number:</label><br>
+  <input type="text" id="number" formControlName="number" ><br>
+  <p *ngIf="submit && form.get('number').invalid">Card Number is required</p>
+  <label for="holder">Card Holder:</label><br>
+  <input type="text" id="holder" formControlName="holder" ><br>
+  <p *ngIf="submit && form.get('holder').invalid">Card Holder is required</p>
+  <label for="expiryYear">Expiration Year</label><br>
+  <input type="text"  id="expiryYear" formControlName="expiry"/><br>
+  <p *ngIf="submit && form.get('expiry').invalid">Expiration Year is invalid</p>
+  <label for="cvv">Security Code - CVV</label><br>
+  <input type="text" id="cvv" formControlName="cvv" ><br>
+  <p *ngIf="submit && form.get('cvv').invalid">CVV is 3 digits</p>
+  <label for="amount">Amount</label><br>
+  <input type="text" id="amount" formControlName="amount" ><br>
+  <p *ngIf="submit && form.get('amount').invalid">Amount is required</p>
+  <input type="submit" value="Submit">
+</form>
+<a *ngIf="completeAdd" routerLink="/">Go to App Component</a>
