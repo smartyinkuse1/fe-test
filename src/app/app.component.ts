@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   cards$: Observable<Card[]>
   constructor (private store:Store<fromCard.AppState>, private router: Router) {}
   ngOnInit() {
-    this.store.dispatch(new cardActions.LoadCards());
     this.cards$ = this.store.pipe(select(fromCard.getCards))
     this.router.events.subscribe((val:any)=> {
       if (val instanceof NavigationEnd) {

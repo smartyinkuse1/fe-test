@@ -34,24 +34,6 @@ export function cardReducer(
   action: CardActions.Actions
 ): CardState {
   switch (action.type) {
-    case CardActions.CardActionTypes.LOAD_CARDS_SUCCESS: {
-      return cardAdapter.addAll(action.payload, {
-        ...state,
-        loading: false,
-        loaded: true
-      });
-    }
-    case CardActions.CardActionTypes.LOAD_CARDS_FAIL: {
-      return {
-        ...state,
-        entities: {},
-        loading: false,
-        loaded: false,
-        error: action.payload
-      };
-    }
-
-
     case CardActions.CardActionTypes.CREATE_CARD_SUCCESS: {
       alert("Card Added Successfully")
       return cardAdapter.addOne(action.payload, state);

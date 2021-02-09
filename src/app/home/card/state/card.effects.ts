@@ -17,19 +17,6 @@ export class CardEffect {
     private paymentService: PaymentService
   ) {}
   @Effect()
-  loadCards$:Observable<Action> = this.actions$.pipe(
-    ofType<cardActions.LoadCards>(cardActions.CardActionTypes.LOAD_CARDS),
-    mergeMap((actions: cardActions.LoadCards)=>
-      this.paymentService.getCards().pipe(
-        map(
-          (cards: Card[])=>
-          new cardActions.LoadCardsSuccess(cards)
-        ),
-        catchError(err=> of(new cardActions.LoadCardsFail(err)))
-      )
-    )
-  )
-  @Effect()
   createCard$: Observable<Action> = this.actions$.pipe(
     ofType<cardActions.CreateCard>(
       cardActions.CardActionTypes.CREATE_CARD

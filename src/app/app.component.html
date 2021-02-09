@@ -1,5 +1,14 @@
 <button *ngIf="showApp" routerLink="/home">Pay</button>
 <router-outlet></router-outlet>
-<ul *ngIf="showApp">
-  <li *ngFor="let card of (cards$ | async)">{{card.holder}}</li>
-</ul>
+<div *ngIf="showApp">
+  <div *ngFor="let card of cards$ | async; let i = index;">
+    <h3>Card {{i+1}}</h3>
+    <ul class="one">
+      <li>Card Holder : {{ card.holder }}</li>
+      <li>Card Number : {{ card.number }}</li>
+      <li>Card Expiry : {{ card.expiry | date:'medium' }}</li>
+      <li>Card CVV : {{ card.cvv }}</li>
+      <li>Amount : {{ card.amount }}</li>
+    </ul>
+  </div>
+</div>

@@ -7,25 +7,14 @@ import { Card } from '../home/card/card.model';
 })
 export class PaymentService {
   //No real Database to Add new Cards, So there's isn't a fully persistent Storage
-  private id = 2
-  private cards = new BehaviorSubject<Card[]>([
-    {
-      id: 1,
-      number: '12345',
-      holder: 'Test Card',
-      expiry: new Date(),
-      cvv: 'string',
-      amount: 100
-    }
-  ])
+  private id = 1
   constructor() { }
-  getCards() {
-    return this.cards.asObservable()
-  }
+
   createCard(card) {
-    // Simulate Http request Obseverbles
+    // Simulate Http Post request Obseverbles
     const newCard = {...card, id: this.id}
     this.id++
+    //Simulate successful HttpRequest
    return of(newCard)
   }
 }
